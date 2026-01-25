@@ -1,0 +1,24 @@
+name: in_cabin_guard
+channels:
+  - conda-forge
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - pillow
+  - tqdm
+  - opencv
+  - pip
+  - pip:
+      - tensorflow==2.13.1
+      - mediapipe
+      - imutils
+      - seaborn
+      - plotly
+      - wandb
+      - ultralytics
+      - supervision
