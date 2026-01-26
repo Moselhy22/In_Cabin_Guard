@@ -5,6 +5,7 @@ import cv2
 
 from src.config import LANDMARKS_PATH
 
+# Load models once
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(LANDMARKS_PATH)
 
@@ -17,16 +18,19 @@ def eye_aspect_ratio(eye):
     C = dist.euclidean(eye[0], eye[3])
     return (A + B) / (2.0 * C)
 
-def get_driver_roi(frame):
-    h, w = frame.shape[:2]
-    return (int(w * 0.25), int(h * 0.25)), (int(w * 0.75), int(h * 0.75))
-
-def detect_faces_in_roi(gray, roi):
-    rects = detector(gray, 0)
-    (x1, y1), (x2, y2) = roi
-    return [r for r in rects if x1 <= r.left() and r.right() <= x2 and y1 <= r.top() and r.bottom() <= y2]
+def get_largest_face(rects):
+    """
+    Returns the face rectangle with the largest area.
+    Assumes the largest face is the driver (closest to camera).
+    """
+    if not rects:
+        return None
+    return max(rects, key=lambda r: (r.right() - r.left()) * (r.bottom() - r.top()))
 
 def process_frame_for_eyes(gray, rect):
+    """
+    Extract eye landmarks and compute EAR for a given face rectangle.
+    """
     shape = predictor(gray, rect)
     shape = face_utils.shape_to_np(shape)
     leftEye = shape[lStart:lEnd]
