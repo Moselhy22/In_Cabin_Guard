@@ -1,0 +1,17 @@
+telegram:
+  bot_token: "8102584813:AAGQuXN2H0zJT0nt4s9BXEJb05M9lttJKjY"
+  chat_id: "1575296072"
+
+danger_keywords:
+  - "help"
+  - "gun"
+  - "knife"
+  - "attack"
+  - "emergency"
+  - "someone help"
+  - "call police"
+  - "i'm in danger"
+
+audio:
+  sample_rate: 16000
+  chunk_duration: 5  # seconds of audio per transcription

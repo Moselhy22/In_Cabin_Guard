@@ -1,2 +1,11 @@
+# Secrets
+config/settings.yaml
+
+# Logs & data
+logs/
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
 assets/
-config/
