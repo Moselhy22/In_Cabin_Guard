@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(BASE_DIR, "assets")
 
 ALARM_PATH = os.path.join(ASSETS_DIR, "audio", "alarm.mp3")
-LANDMARKS_PATH = os.path.join(ASSETS_DIR, "models", "shape_predictor_68_face_landmarks.dat")
+LANDMARKS_PATH = os.path.join(ASSETS_DIR, "models", "dlib/shape_predictor_68_face_landmarks.dat")
 GEOIP_DB_PATH = os.path.join(ASSETS_DIR, "geoip", "GeoLite2-City.mmdb")
 
 # Detection thresholds

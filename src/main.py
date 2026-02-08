@@ -2,7 +2,7 @@ import cv2, time, asyncio, os
 os.environ['QT_QPA_PLATFORM'] = 'xcb'
 
 from src.config import EYE_AR_THRESH, EYE_AR_CONSEC_FRAMES, SOS_DELAY
-from src.detection.eye_drowsiness import get_largest_face, detector
+from src.detection.legacy.eye_drowsiness import get_largest_face, detector
 from src.alerts.alarm_player import AlarmPlayer
 from src.alerts.telegram_notifier import send_sos_message, send_wake_up_notification
 from src.utils.location import get_location
